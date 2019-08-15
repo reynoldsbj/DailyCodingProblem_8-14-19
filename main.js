@@ -7,6 +7,27 @@
  * Bonus: Can you do this in one pass?
  */
 
- function SolveProblem(arr, k) {
- }
+function SolveProblem(arr, k) {
+    if (arr === null || arr.length < 2)
+        return false;
+
+    arr.sort();
+
+    var i = 0;
+    var j = arr.length-1;
+    var sum = 0;
+    while (i < j) {
+        sum = arr[i] + arr[j];
+        if (sum === k) {
+            return true;
+        }
+        else if (sum > k) {
+            j--;
+        }
+        else {
+            i++;
+        }
+    }
+    return false;
+}
  
